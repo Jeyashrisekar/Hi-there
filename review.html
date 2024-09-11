@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .review {
+            position: relative;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .review h2 {
+            margin-top: 0;
+            color: #555;
+        }
+
+        .review p {
+            margin-top: 5px;
+            line-height: 1.6;
+        }
+
+        .review .author {
+            margin-top: 10px;
+            font-style: italic;
+            color: #888;
+        }
+
+        .move {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Product Review</h1>
+
+    <div class="review" draggable="true">
+        <div class="move">&#x2630;</div>
+        <h2>Amazing Product!</h2>
+        <p>This product exceeded my expectations. It's well-built, easy to use, and performs exceptionally well. I've been using it for a few weeks now and I'm extremely satisfied with its performance.</p>
+        <p>The customer service was also excellent. I had a question about the product and their support team responded promptly and resolved my issue.</p>
+        <div class="author">- John Doe</div>
+        <img src="https://via.placeholder.com/150" alt="Product Image">
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+    </div>
+
+    <div class="review" draggable="true">
+        <div class="move">&#x2630;</div>
+        <h2>Disappointing Experience</h2>
+        <p>I had high hopes for this product, but unfortunately, it didn't live up to my expectations. The quality was lacking, and it stopped working after just a few uses.</p>
+        <p>I contacted customer support for a refund, but their response was slow and unhelpful. Overall, I'm very disappointed with my experience.</p>
+        <div class="author">- Jane Smith</div>
+        <img src="https://via.placeholder.com/150" alt="Product Image">
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+    </div>
+</div>
+
+<script>
+    const reviews = document.querySelectorAll('.review');
+    let draggedReview = null;
+
+    reviews.forEach(review => {
+        review.addEventListener('dragstart', () => {
+            draggedReview = review;
+            setTimeout(() => {
+                review.style.display = 'none';
+            }, 0);
+        });
+
+        review.addEventListener('dragend', () => {
+            setTimeout(() => {
+                draggedReview.style.display = 'block';
+                draggedReview = null;
+            }, 0);
+        });
+    });
+</script>
+
+</body>
+</html>
